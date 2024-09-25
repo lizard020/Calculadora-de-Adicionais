@@ -1,8 +1,13 @@
 import pandas as pd
 import datetime as dt
 import locale
+import os
 
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+# Tenta definir para pt_BR.UTF-8, se não funcionar, define o locale padrão
+try:
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+except locale.Error:
+    locale.setlocale(locale.LC_ALL, '')  # Usa o locale padrão do sistema
 
 # DEFINE O DATAFRAME (df)
 def define_df(nome, data_inicial, data_final):
