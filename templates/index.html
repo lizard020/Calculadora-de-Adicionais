@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Insalubridade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora de Insalubridade</h1>
+
+        <!-- Formulário para inserir os dados -->
+        <form id="form-dados">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dataInicial">Data Inicial:</label>
+                <input type="date" id="dataInicial" name="dataInicial" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dataFinal">Data Final:</label>
+                <input type="date" id="dataFinal" name="dataFinal" required>
+            </div>
+
+            <div class="form-group">
+                <label for="grau">Grau:</label>
+                <select id="grau" name="grau" required>
+                    <option value="">Selecione</option>
+                    <option value="0.1">Leve (10%)</option>
+                    <option value="0.2">Médio (20%)</option>
+                    <option value="0.4">Grave (40%)</option>
+                </select>
+            </div>
+
+        <!-- Botões Adicionar e Editar lado a lado -->
+        <div class="button-group">
+            <button type="button" id="adicionarBtn">Adicionar</button>
+        </div>
+
+        <!-- Tabela de dados -->
+        <div class="table-container">
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data Inicial</th>
+                        <th>Data Final</th>
+                        <th>Grau</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- As linhas da tabela serão preenchidas aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botão para Calcular -->
+        <div class="button-group">
+            <button type="button" id="calcularBtn">Calcular</button>
+        </div>
+
+        <!-- Área para exibir o resultado -->
+        <div class="resultado-container">
+            <h3>Resultado do Cálculo:</h3>
+            <table id="resultado-tabela">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Meses Trabalhados</th>
+                        <th>Insalubridade Real</th>
+                        <th>Insalubridade VPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- O resultado do cálculo será exibido aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Div para exibir o nome e o DataFrame `porc` -->
+        <div id="porc-container">
+            <h3 id="porc-titulo"></h3> <!-- Nome do trabalhador será mostrado aqui -->
+            <div id="porc">
+                <!-- O DataFrame `porc` será exibido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclui o arquivo JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
