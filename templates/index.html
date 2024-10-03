@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Insalubridade</title>
+    <title>Calculadora de Periculosidade</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <div class="container">
-        <h1>Calculadora de Insalubridade</h1>
+        <h1>Calculadora de Periculosidade</h1>
 
         <!-- Formulário para inserir os dados -->
         <form id="form-dados">
@@ -28,22 +28,19 @@
                 <input type="date" id="dataFinal" name="dataFinal" required>
             </div>
 
+            <!-- Substituir o Grau por Salário -->
             <div class="form-group">
-                <label for="grau">Grau:</label>
-                <select id="grau" name="grau" required>
-                    <option value="">Selecione</option>
-                    <option value="0.1">Leve (10%)</option>
-                    <option value="0.2">Médio (20%)</option>
-                    <option value="0.4">Grave (40%)</option>
-                </select>
+                <label for="salario">Salário (R$):</label>
+                <input type="text" id="salario" name="salario" placeholder="R$ 0,00" required>
             </div>
 
-        <!-- Botões Adicionar e Editar lado a lado -->
-        <div class="button-group">
-            <button type="button" id="adicionarBtn">Adicionar</button>
-        </div>
+            <!-- Botões Adicionar e Editar lado a lado -->
+            <div class="button-group">
+                <button type="button" id="adicionarBtn">Adicionar</button>
+            </div>
+        </form>
 
-        <!-- Tabela de dados -->
+        <!-- Tabela de dados adicionados -->
         <div class="table-container">
             <table id="tabela">
                 <thead>
@@ -51,7 +48,7 @@
                         <th>Nome</th>
                         <th>Data Inicial</th>
                         <th>Data Final</th>
-                        <th>Grau</th>
+                        <th>Remuneração</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,8 +70,8 @@
                     <tr>
                         <th>Nome</th>
                         <th>Meses Trabalhados</th>
-                        <th>Insalubridade Real</th>
-                        <th>Insalubridade VPA</th>
+                        <th>Remuneração</th>
+                        <th>Adicional Total</th>
                     </tr>
                 </thead>
                 <tbody>

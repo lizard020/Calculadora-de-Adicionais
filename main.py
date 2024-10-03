@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import webbrowser
 from threading import Timer
-from backend import calcular
+from backend import calcular_periculosidade
 
 app = Flask(__name__)
 
@@ -11,13 +11,13 @@ def index():
     return render_template('index.html')
 
 # Rota para realizar o cálculo
-@app.route('/calcular', methods=['POST'])
+@app.route('/calcular_periculosidade', methods=['POST'])
 def calcular_view():
     trabalhadores = request.json.get('trabalhadores', [])
     if not trabalhadores:
         return jsonify({'error': 'Nenhum trabalhador foi adicionado!'}), 400
 
-    resultado = calcular(trabalhadores)
+    resultado = calcular_periculosidade(trabalhadores)
     if 'error' in resultado:
         return jsonify({'error': resultado['error']}), 400
     return jsonify(resultado)
